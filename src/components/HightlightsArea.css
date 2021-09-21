@@ -1,0 +1,72 @@
+:root {
+    --fg: rgb(30, 35, 60);
+    --btn-disabled-color: rgb(88, 85, 120);
+    --btn-enabled-color: rgb(230, 230, 235);
+}
+
+.hightlights-area-wrapper {
+    background-color: rgb(16, 14, 29);
+    justify-content: center;
+    display: flex;
+    color: white;
+    width: 70%;
+}
+
+.temperature-kind-wrapper {
+    justify-content: flex-end;
+    padding-top: 40px;
+    display: flex;
+    width: 100%;
+}
+
+.temperature-kind-wrapper button {
+    border-radius: 50%;
+}
+
+.daily-weather-div {
+    display: flex;
+}
+
+.weather-wrapper {
+    /*same value as --te-bg-color*/
+    background-color: var(--fg); 
+    text-align: center;
+    flex-grow: 5;
+    margin: 5px;
+}
+
+.daily-weather-content {
+    max-width: 90%;
+    width: 100%;
+}
+
+.daily-weather-content h1 {
+    font-size: x-large;
+}
+
+.highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.highlight {
+    background-color: var(--fg);
+    text-align: center;
+}
+
+.highlight .text {
+    font-size: x-large;
+}
+
+.highlight span {
+    font-size: xx-large;
+}
+
+.weather-temp {
+    display: flex;
+}
+
+.weather-temp p {
+    flex-grow: 2;
+}

@@ -1,0 +1,85 @@
+:root {
+    --te-bg-color: rgb(30, 35, 60);
+}
+  
+.today-weather-wrapper {
+    background-color: var(--te-bg-color);
+    width: 30%;
+    text-align: center;
+    color: white;
+    padding: 30px;  
+}
+
+.today-weather-search-loc-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.today-weather-btn {
+    background-color: rgb(172, 175, 192);
+    border: 1px solid rgb(54, 56, 61);
+    color: white;
+}
+
+.today-weather-gps-btn {
+    background-color: rgb(1, 1, 1,0);
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.today-weather-temperature-number {
+    font-size: xxx-large;
+}
+
+.today-weather-temperature-sign {
+    font-size: x-large;
+}
+
+.today-weather-climate {
+    font-size: x-large;
+}
+
+.today-weather-time-date {
+    font-size: xx-small;
+}
+
+.today-weather-location-div {
+    font-size: xx-small;
+    display: flex;
+    justify-content: center;
+}
+
+.today-weather-location-div span {
+    font-size: 20px;
+}
+
+/* search view */
+
+.tw-searchbar-btn {
+    display: flex;
+}
+
+.tw-search-div select {
+    width: 100%;
+}
+
+.tw-search-div input {
+    width: 80%;
+}
+
+.tw-search-div input, .today-weather-wrapper select, .tw-searchbar-btn button{
+    margin-top: 40px;
+    padding: 10px;
+    margin-right: 3px;
+    border: 1px solid  #fefefe;
+    background: var(--te-bg-color);
+    font-size: 1em;
+    color: #fefefe;
+}
+
+.tw-search-div button {
+    background-color: rgb(60, 70, 230);
+    color: white;
+}
