@@ -1,6 +1,7 @@
 import react, { useState } from "react"
 import { Fragment } from "react/cjs/react.production.min"
 import './TodayWeather.css'
+import {getCityByName} from '../WeatherAPIWrapper'
 
 const initialState = { input: '', options: [], searchEnabled: true }
 
@@ -16,7 +17,15 @@ export default function TodayWeather(props) {
     
     const onGpsBtnClicked = (event) => { alert(event)}
     const onSearchBtnClicked = async (event) => {
-       
+        event.preventDefault()
+        const searchInput = state.input.trim().toLocaleLowerCase()
+        const matches = await getCityByName(searchInput)
+        if (matches === null || matches.lenght === 0)
+            return
+        
+        const cities = matches.map(c => c['title'])
+        const newState = {...state, options: cities}
+        setState(newState)
     }
     
     const OnCitySelected = (event) => {
