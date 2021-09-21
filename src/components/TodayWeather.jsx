@@ -2,27 +2,30 @@ import react, { useState } from "react"
 import { Fragment } from "react/cjs/react.production.min"
 import './TodayWeather.css'
 
+const initialState = { input: '', options: [], searchEnabled: true }
+
 /**
  *  Displays the current wheather and search the location to display
  */
 export default function TodayWeather(props) {
-   
+    const [state, setState] = useState(initialState)
+
     const onSearchPlacesBtnClicked = (event) => { 
-        setSearchViewEnabled(true)
+        setState({...state, searchEnabled: true})
     }
     
     const onGpsBtnClicked = (event) => { alert(event)}
     const onSearchBtnClicked = async (event) => {
-        
+       
     }
     
     const OnCitySelected = (event) => {
-        setSearchViewEnabled(false)
+        setState({...state, searchEnabled: false})
     }
 
     const onSearchChanged = (event) => {
-        const value = {...searchText, input:event.target.value}
-        setSearchText(value)
+        const value = {...state, input:event.target.value}
+        setState(value)
     }
 
     const WeatherScreen = (
@@ -55,7 +58,7 @@ export default function TodayWeather(props) {
             </div>
         </Fragment>
     )
-    
+
     const SearchScreen = (
         <Fragment>
                 <div className="tw-close-wrapper">
@@ -71,7 +74,13 @@ export default function TodayWeather(props) {
 
                             <button onClick={onSearchBtnClicked}>Search</button>       
                         </div>
-                        <select></select>
+                        <select>
+                            {
+                                state.options.map(val => (
+                                    <option value={val}>{val}</option>
+                                ))
+                            }
+                        </select>
                     </div>
                 </form>
         </Fragment>
@@ -79,7 +88,7 @@ export default function TodayWeather(props) {
     
     return (
         <div className="today-weather-wrapper">
-            {searchViewEnabled ? SearchScreen : WeatherScreen}
+            {state.searchEnabled ? SearchScreen : WeatherScreen}
         </div>
     )
 }
