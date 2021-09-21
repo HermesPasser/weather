@@ -1,11 +1,14 @@
 import { getCityByName } from '../WeatherAPIWrapper'
+import { dateFormat, dateFromString } from '../utils'
 import { Fragment } from "react/cjs/react.production.min"
 import './TodayWeather.css'
-
 /**
  *  Displays the current wheather and search the location to display
  */
 export default function TodayWeather({state, setState, setWeatherData}) {
+    const todayData = state.weatherData[0]
+    let date = dateFormat(dateFromString(todayData.applicable_date))
+    
     const onSearchPlacesBtnClicked = (event) => { 
         setState({...state, searchEnabled: true})
     }
@@ -57,16 +60,16 @@ export default function TodayWeather({state, setState, setWeatherData}) {
                     alt="figure representing the weather" />
 
                 <p>
-                    <span className="today-weather-temperature-number">0</span>
+                    <span className="today-weather-temperature-number">{Math.round(todayData.the_temp)}</span>
                     <span className="today-weather-temperature-sign">ºC</span>
                 </p>
                 
-                <p className="today-weather-climate">Weather</p>
-                <p className="today-weather-time-date">Day - Date</p>
+                <p className="today-weather-climate">{todayData.weather_state_name}</p>
+                <p className="today-weather-time-date">Today - {date}</p>
                 
                 <div className="today-weather-location-div">
                     <span className="material-icons">place</span>
-                    <p>CITY HERE</p>
+                    <p>{state.location}</p>
                 </div>
             </div>
         </Fragment>
