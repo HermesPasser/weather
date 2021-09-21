@@ -12,3 +12,11 @@ export async function getCityByName(name) {
     const data = response.json()
     return data !== [] ? data : []
 }
+
+/**
+ * given an id, get all relevant weather data from the city inside of the attribute 'consolidated_weather'
+ * @returns array of objects with the weather data, with each representating a day
+ */
+export async function getWeatherDataById(id) {
+   
+}

@@ -1,21 +1,17 @@
-import react, { useState } from "react"
+import { getCityByName } from '../WeatherAPIWrapper'
 import { Fragment } from "react/cjs/react.production.min"
 import './TodayWeather.css'
-import {getCityByName} from '../WeatherAPIWrapper'
-
-const initialState = { input: '', options: [], searchEnabled: true }
 
 /**
  *  Displays the current wheather and search the location to display
  */
-export default function TodayWeather(props) {
-    const [state, setState] = useState(initialState)
-
+export default function TodayWeather({state, setState, setWeatherData}) {
     const onSearchPlacesBtnClicked = (event) => { 
         setState({...state, searchEnabled: true})
     }
     
     const onGpsBtnClicked = (event) => { alert(event)}
+
     const onSearchBtnClicked = async (event) => {
         event.preventDefault()
         const searchInput = state.input.trim().toLocaleLowerCase()
@@ -23,14 +19,21 @@ export default function TodayWeather(props) {
         if (matches.lenght === 0) {
             alert('Can\'t retrieve the weather data at the moment. Try again later.')
             return
+        }
         
-        const cities = matches.map(c => c['title'])
-        const newState = {...state, options: cities}
-        setState(newState)
+        const cities = matches.map(c => { 
+                return {'city': c['title'], 'id': c['woeid']}
+        })
+        setState({...state, options: cities})
     }
     
-    const OnCitySelected = (event) => {
+    const onCloseButtonClicked = (event) => {
+        setWeatherData()
         setState({...state, searchEnabled: false})
+    }
+
+    const onSelectedOption = (event) => {
+        setState({...state, selectedId: event.target.value})
     }
 
     const onSearchChanged = (event) => {
@@ -72,7 +75,7 @@ export default function TodayWeather(props) {
     const SearchScreen = (
         <Fragment>
                 <div className="tw-close-wrapper">
-                    <button className="tw-search-btn-x" onClick={OnCitySelected}>X</button>
+                    <button className="tw-search-btn-x" onClick={onCloseButtonClicked}>X</button>
                 </div>
                 <form>
                     <div className="tw-search-div">
@@ -84,10 +87,10 @@ export default function TodayWeather(props) {
 
                             <button onClick={onSearchBtnClicked}>Search</button>       
                         </div>
-                        <select>
+                        <select onChange={onSelectedOption}>
                             {
                                 state.options.map(val => (
-                                    <option value={val}>{val}</option>
+                                    <option value={val.id}>{val.city}</option>
                                 ))
                             }
                         </select>
