@@ -14,7 +14,8 @@ export async function getCityByName(name) {
 }
 
 /**
- * given an id, get all relevant weather data from the city inside of the attribute 'consolidated_weather'
+ * given an id, get all relevant weather data from the city inside of the attribute 
+ * 'consolidated_weather' plus the value of 'title' as 'location'
  * @returns array of objects with the weather data, with each representating a day
  */
 export async function getWeatherDataById(id) {
@@ -26,5 +27,5 @@ export async function getWeatherDataById(id) {
     if (data['detail'])
         return []
 
-    return data['consolidated_weather']
+    return { weatherData: data['consolidated_weather'], location: data['title']}
 }

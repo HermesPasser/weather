@@ -19,9 +19,14 @@ const initialWeatherState = {
     visibility: 0,
 }
 
-// const initialState = { input: '', options: [], searchEnabled: false, selectedId: 0, weatherData: [initialWeatherState] }
-const initialState = { input: '', options: [], searchEnabled: false, selectedId: 0, weatherData: placeholder }
-
+const initialState = { 
+    input: '', 
+    options: [], 
+    searchEnabled: false, 
+    selectedId: 0,
+    location: '',
+    weatherData: initialWeatherState
+}
 
 export default function MainScreen(props) {
     const [state, setState] = useState(initialState)
@@ -32,10 +37,12 @@ export default function MainScreen(props) {
             return
         
         const data = getWeatherDataById(state.selectedId)
-        if (data.lenght === 0)
+        const weather = data.weatherData
+        const loc = data.location
+        if (weather.lenght === 0)
             return
 
-        setState({...state, weatherData: data})
+        setState({...state, weatherData: weather, location: loc})
     }
 
     return (
