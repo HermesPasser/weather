@@ -29,3 +29,7 @@ export async function getWeatherDataById(id) {
 
     return { weatherData: data['consolidated_weather'], location: data['title']}
 }
+
+export function getIconFromAbbreviation(abbr) {
+    return `https://www.metaweather.com//static/img/weather/${abbr}.svg`
+}
