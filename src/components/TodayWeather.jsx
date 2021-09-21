@@ -5,25 +5,31 @@ import './TodayWeather.css'
 /**
  *  Displays the current wheather and search the location to display
  */
-export default function TodayWeather() {
-    const [searchViewEnabled, setSearchViewEnabled] = useState(false)
-    
-    const searchPlacesBtnClicked = (event) => { 
+export default function TodayWeather(props) {
+   
+    const onSearchPlacesBtnClicked = (event) => { 
         setSearchViewEnabled(true)
     }
     
-    const gpsBtnClicked = (event) => { alert(event)}
-    const searchBtnClicked = (event) => { alert(event)}
+    const onGpsBtnClicked = (event) => { alert(event)}
+    const onSearchBtnClicked = async (event) => {
+        
+    }
     
-    const citySelected = (event) => {
+    const OnCitySelected = (event) => {
         setSearchViewEnabled(false)
+    }
+
+    const onSearchChanged = (event) => {
+        const value = {...searchText, input:event.target.value}
+        setSearchText(value)
     }
 
     const WeatherScreen = (
         <Fragment>
             <div className="today-weather-search-loc-wrapper">
-                <button className="today-weather-btn" onClick={searchPlacesBtnClicked}>Search for places</button>
-                <button className="today-weather-btn today-weather-gps-btn" onClick={gpsBtnClicked}>
+                <button className="today-weather-btn" onClick={onSearchPlacesBtnClicked}>Search for places</button>
+                <button className="today-weather-btn today-weather-gps-btn" onClick={onGpsBtnClicked}>
                     <span class="material-icons">gps_fixed</span>
                 </button>
             </div>
@@ -52,16 +58,20 @@ export default function TodayWeather() {
     
     const SearchScreen = (
         <Fragment>
+                <div className="tw-close-wrapper">
+                    <button className="tw-search-btn-x" onClick={OnCitySelected}>X</button>
+                </div>
                 <form>
                     <div className="tw-search-div">
                         <div className="tw-searchbar-btn">
-                            <input className="foo" placeholder="search location" type="text" />
-                            <button onClick={searchBtnClicked}>Search</button>       
+                            <input 
+                                onChange={onSearchChanged} 
+                                placeholder="search location" 
+                                type="text" />
+
+                            <button onClick={onSearchBtnClicked}>Search</button>       
                         </div>
-                        <select onChange={citySelected}>
-                            <option value="1">Ex</option>
-                            <option value="2">Ex2</option>
-                        </select>
+                        <select></select>
                     </div>
                 </form>
         </Fragment>

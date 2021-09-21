@@ -10,10 +10,22 @@
     padding: 30px;  
 }
 
+
 .today-weather-search-loc-wrapper {
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+
+.tw-close-wrapper {
+    /* display: flex; */
+}
+
+.tw-search-btn-x {
+    background-color: rgba(1, 1, 1, 0);
+    border: none;
+    color: white;
+    justify-content: flex-end;
 }
 
 .today-weather-btn {
