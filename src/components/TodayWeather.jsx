@@ -20,7 +20,8 @@ export default function TodayWeather(props) {
         event.preventDefault()
         const searchInput = state.input.trim().toLocaleLowerCase()
         const matches = await getCityByName(searchInput)
-        if (matches === null || matches.lenght === 0)
+        if (matches.lenght === 0) {
+            alert('Can\'t retrieve the weather data at the moment. Try again later.')
             return
         
         const cities = matches.map(c => c['title'])

@@ -1,12 +1,14 @@
 const API = "https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/"
 
+/**
+ * given a name, get all cities that matches it
+ * @returns array of objects that have a 'title' and 'woeid' attributes
+ */
 export async function getCityByName(name) {
-    console.log('calling...')
     const response = await fetch(API + '/location/search/?query=' + name)
     if (response.status !== 200)
-        return null
+        return []
     
     const data = response.json()
-    console.log(data)
     return data !== [] ? data : []
 }
