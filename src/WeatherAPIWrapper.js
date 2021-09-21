@@ -18,5 +18,13 @@ export async function getCityByName(name) {
  * @returns array of objects with the weather data, with each representating a day
  */
 export async function getWeatherDataById(id) {
-   
+    const response = await fetch(API + '/location/' + id)
+    if (response.status !== 200)
+        return []
+    
+    const data = response.json()
+    if (data['detail'])
+        return []
+
+    return data['consolidated_weather']
 }

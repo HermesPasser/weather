@@ -2,9 +2,11 @@ import react, { useState } from "react"
 import TimeIcon from "./TimeIcon"
 import './HightlightsArea.css'
 
-export default function HightlightsArea() {
+export default function HightlightsArea({state, setState, weatherData}) {
     const [useFahrenheit, setUseFahrenheit] = useState(false)
-
+    const todayData = weatherData[0]
+    
+    // TODO: this needs to be implemented
     const ceisiusBtnClick = () => setUseFahrenheit(false)
     const fahrenheitBtnClick = () => setUseFahrenheit(true)
 
@@ -38,25 +40,24 @@ export default function HightlightsArea() {
 
                     <div className="highlight wind-status">
                             <p>Wind Status</p>
-                            <p className="text"><span>Number</span> mph</p>
-                            <p>figure + direction (wsw)</p>
+                            <p className="text"><span>{Math.round(todayData.wind_direction)}</span>mph</p>
+                            <p>compass | {todayData.wind_direction_compass}</p>
                     </div>
                     
                     <div className="highlight humidity">
                             <p>Humidity</p>
-                            <p><span>Number</span> %</p>
-                            <p>figure + direction (wsw)</p>
+                            <p><span>{todayData.humidity}</span>%</p>
                             gaugue here
                     </div>
 
                     <div className="highlight visibility">
-                        <p>Wind Status</p>
-                        <p><span>Number</span> miles</p>
+                        <p>Visibility</p>
+                        <p><span>{Math.round(todayData.visibility)}</span>miles</p>
                     </div>
                     
                     <div className="highlight Air pressure">
                         <p>Wind Status</p>
-                        <p><span>Number</span> mb</p>
+                        <p><span>{Math.round(todayData.air_pressure)}</span>mb</p>
                     </div>
                 </div>
             </div>
