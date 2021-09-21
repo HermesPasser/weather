@@ -25,7 +25,7 @@ const initialState = {
     searchEnabled: false, 
     selectedId: 0,
     location: '',
-    weatherData: initialWeatherState
+    weatherData: [initialWeatherState]
 }
 
 export default function MainScreen(props) {
