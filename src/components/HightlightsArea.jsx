@@ -44,7 +44,6 @@ export default function HightlightsArea({state, setState, weatherData}) {
                                 <img 
                                     className="compass" 
                                     alt="compass arrow that points to wind direction"
-                                    // style={{rotation: 30}}
                                     style={{transform: rotation }}
                                     src={Compass}
                                     />
@@ -56,7 +55,24 @@ export default function HightlightsArea({state, setState, weatherData}) {
                     <div className="highlight humidity">
                             <p>Humidity</p>
                             <p><span>{todayData.humidity}</span>%</p>
-                            gaugue here
+                            <div className="gauge-wrapper">
+                                <div className="gauge-labels">
+                                    <p>0</p>
+                                    <p>50</p>
+                                    <p>100</p>
+                                </div>
+                                <div className="gauge">
+                                    <div 
+                                        className="gauge-inside"
+                                        style={{width: todayData.humidity + '%'}}
+                                        >
+                                        -
+                                    </div>
+                                </div>
+                                <div className="gauge-percent-label">
+                                    <p>%</p>
+                                </div>
+                            </div>
                     </div>
 
                     <div className="highlight visibility">

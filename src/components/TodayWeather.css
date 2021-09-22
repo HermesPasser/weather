@@ -72,6 +72,35 @@
     font-size: 20px;
 }
 
+.compass-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.compass {
+    width: 8%;
+}
+
+.gauge-labels {
+    display: flex;
+    justify-content: space-around;
+}
+
+.gauge {
+    background-color: white;
+    border-radius: 50px;
+}
+
+.gauge-inside {
+    /* background: linear-gradient(90deg, yellow 100%, white 0%); */
+    background-color: yellow;
+    border-radius: 50px;
+}
+
+.gauge-percent-label {
+    text-align: end;
+}
+
 /* search view */
 
 .tw-searchbar-btn {
