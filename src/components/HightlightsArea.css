@@ -79,3 +79,56 @@
 .weather-temp p {
     flex-grow: 2;
 }
+
+@media (max-width: 600px) {
+   
+    .hightlights-area-wrapper {
+        width: 100vh;
+    }
+
+    .temperature-kind-wrapper {
+        display: none;
+    }
+    
+    
+    .temperature-kind-wrapper button {
+        /* display: block; */
+    }
+    
+    .temperature-kind-wrapper button:disabled {
+        /* display: block; */
+    }
+
+
+    .daily-weather-content {
+        margin-top: 40px;
+    }
+
+    .daily-weather-div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .weather-wrapper {
+        width: 90%;
+    }
+
+    .highlights {
+        display: block;
+        padding-bottom: 5em;
+    }
+    
+    .highlight {
+        width: 20em;
+        margin: 0 auto;
+        padding-bottom: 5%;
+    }
+
+    .highlight p span {
+        font-size: xxx-large;
+    }
+    
+    .highlight .text p {
+        font-size: xx-large;
+    }
+}
