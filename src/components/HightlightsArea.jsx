@@ -19,10 +19,14 @@ export default function HightlightsArea({state, setState, weatherData}) {
                 </div>
                 
                 <div className="daily-weather-div">
-                    {state.weatherData.map(d=> 
+                    {state.weatherData.map((d, i)=> 
                         <TimeIcon
                             useFahrenheit={!state.useCelsius}
-                            formattedDateStr={dateFormat(dateFromString(d.applicable_date))}
+                            formattedDateStr={
+                                i === 0 
+                                    ? 'Tomorrow'
+                                    : dateFormat(dateFromString(d.applicable_date))
+                            }
                             maxTempture={d.max_temp}
                             minTempture={d.min_temp}
                             abbr={d.weather_state_abbr} />)}
