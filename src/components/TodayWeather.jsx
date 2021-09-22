@@ -2,12 +2,16 @@ import { getCityByName } from '../WeatherAPIWrapper'
 import { dateFormat, dateFromString } from '../utils'
 import { Fragment } from "react/cjs/react.production.min"
 import './TodayWeather.css'
+import { celciusToFahrenheit } from '../utils'
+
 /**
  *  Displays the current wheather and search the location to display
  */
 export default function TodayWeather({state, setState, setWeatherData, onGps}) {
     const todayData = state.weatherData[0]
     let date = dateFormat(dateFromString(todayData.applicable_date))
+    let temperature = state.useCelsius ? todayData.the_temp : celciusToFahrenheit(todayData.the_temp)
+    temperature = Math.round(temperature)
     
     const onSearchPlacesBtnClicked = (event) => { 
         setState({...state, searchEnabled: true})
@@ -58,8 +62,8 @@ export default function TodayWeather({state, setState, setWeatherData, onGps}) {
                     alt="figure representing the weather" />
 
                 <p>
-                    <span className="today-weather-temperature-number">{Math.round(todayData.the_temp)}</span>
-                    <span className="today-weather-temperature-sign">ºC</span>
+                    <span className="today-weather-temperature-number">{temperature}</span>
+                    <span className="today-weather-temperature-sign">º{state.useCelsius ? 'C' : 'F'}</span>
                 </p>
                 
                 <p className="today-weather-climate">{todayData.weather_state_name}</p>

@@ -26,7 +26,8 @@ const initialState = {
     selectedId: 0,
     location: '',
     weatherData: [initialWeatherState],
-    gpsCoords: null
+    gpsCoords: null,
+    useCelsius: true
 }
 
 

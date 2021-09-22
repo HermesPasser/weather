@@ -11,3 +11,7 @@ export function dateFormat(date) {
     const month = months[date.getUTCMonth()] 
     return `${dayOfWeek}, ${date.getUTCDay()} ${month}`
 }
+
+export function celciusToFahrenheit(value) {
+    return (value * (9/5) + 32)
+}

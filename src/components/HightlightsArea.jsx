@@ -1,15 +1,13 @@
 import { dateFormat, dateFromString } from "../utils"
-import react, { useState } from "react"
 import TimeIcon from "./TimeIcon"
 import './HightlightsArea.css'
 
 export default function HightlightsArea({state, setState, weatherData}) {
-    const [useFahrenheit, setUseFahrenheit] = useState(false)
     const todayData = weatherData[0]
     
     // TODO: this needs to be implemented
-    const ceisiusBtnClick = () => setUseFahrenheit(false)
-    const fahrenheitBtnClick = () => setUseFahrenheit(true)
+    const ceisiusBtnClick = () => setState({...state, useCelsius: true})
+    const fahrenheitBtnClick = () => setState({...state, useCelsius: false})
 
     return (
         <div className="hightlights-area-wrapper">              
@@ -21,11 +19,12 @@ export default function HightlightsArea({state, setState, weatherData}) {
                 </div>
                 
                 <div className="daily-weather-div">
-                    {state.weatherData.map(d => 
-                        <TimeIcon 
-                            formattedDateStr={dateFormat(dateFromString(d.applicable_date))} 
-                            maxTempture={Math.round(d.max_temp)}
-                            minTempture={Math.round(d.min_temp)}
+                    {state.weatherData.map(d=> 
+                        <TimeIcon
+                            useFahrenheit={!state.useCelsius}
+                            formattedDateStr={dateFormat(dateFromString(d.applicable_date))}
+                            maxTempture={d.max_temp}
+                            minTempture={d.min_temp}
                             abbr={d.weather_state_abbr} />)}
                 </div>
 

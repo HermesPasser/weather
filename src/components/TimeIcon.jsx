@@ -1,11 +1,22 @@
 import { getIconFromAbbreviation } from "../WeatherAPIWrapper"
+import { celciusToFahrenheit } from "../utils"
+import { useEffect } from "react"
+
 /*
  * Shows the temperature a day. Uses the same css than HightlightsArea
  */
-export default function TimeIcon({ formattedDateStr, maxTempture, minTempture, abbr = 'c', isCelcius = true}) {
+export default function TimeIcon({ formattedDateStr, maxTempture, minTempture, useFahrenheit, abbr = 'c'}) {
     // TODO: since this is only getting feed, pass the min and max with the correct temp type (celcius, faren..)
-    const tempSufix = isCelcius ? 'C' : 'F'
+    const tempSufix = useFahrenheit ? 'F' : 'C'
     const icon = getIconFromAbbreviation(abbr)
+    
+    maxTempture = Math.round(maxTempture)
+    minTempture = Math.round(minTempture)
+    if (useFahrenheit) {
+        maxTempture = Math.round(celciusToFahrenheit(maxTempture))
+        minTempture = Math.round(celciusToFahrenheit(minTempture))
+    }
+
     return (
         <div className="weather-wrapper">
             <p>{formattedDateStr}</p>
