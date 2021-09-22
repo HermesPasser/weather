@@ -9,7 +9,7 @@ export function dateFormat(date) {
 
     const dayOfWeek = days[date.getUTCDay()]
     const month = months[date.getUTCMonth()] 
-    return `${dayOfWeek}, ${date.getUTCDay()} ${month}`
+    return `${dayOfWeek}, ${date.getUTCDate()} ${month}`
 }
 
 export function celciusToFahrenheit(value) {
