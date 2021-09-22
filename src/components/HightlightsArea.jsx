@@ -1,13 +1,14 @@
 import { dateFormat, dateFromString } from "../utils"
 import TimeIcon from "./TimeIcon"
 import './HightlightsArea.css'
+import Compass from "../assets/Compass-Arrow.svg"
 
 export default function HightlightsArea({state, setState, weatherData}) {
     const todayData = weatherData[0]
-    
     // TODO: this needs to be implemented
     const ceisiusBtnClick = () => setState({...state, useCelsius: true})
     const fahrenheitBtnClick = () => setState({...state, useCelsius: false})
+    const rotation = `rotate(${todayData.wind_direction}deg)`
 
     return (
         <div className="hightlights-area-wrapper">              
@@ -39,7 +40,17 @@ export default function HightlightsArea({state, setState, weatherData}) {
                     <div className="highlight wind-status">
                             <p>Wind Status</p>
                             <p className="text"><span>{Math.round(todayData.wind_direction)}</span>mph</p>
-                            <p>compass | {todayData.wind_direction_compass}</p>
+                            <div className="compass-wrapper">
+                                <img 
+                                    className="compass" 
+                                    alt="compass arrow that points to wind direction"
+                                    // style={{rotation: 30}}
+                                    style={{transform: rotation }}
+                                    src={Compass}
+                                    />
+
+                                <p>{todayData.wind_direction_compass}</p>
+                            </div>
                     </div>
                     
                     <div className="highlight humidity">
