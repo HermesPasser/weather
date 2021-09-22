@@ -14,6 +14,19 @@ export async function getCityByName(name) {
 }
 
 /**
+ * given a postition, get all cities that near from it
+ * @returns array of objects that have a 'title' and 'woeid' attributes
+ */
+export async function getCityByGeocalization(latitude, longetude) {
+    const response = await fetch(API + `/location/search/?lattlong=${latitude},${longetude}`)
+    if (response.status !== 200)
+        return []
+    console.log('-->', response.status)
+    const data = response.json()
+    return data
+}
+
+/**
  * given an id, get all relevant weather data from the city inside of the attribute 
  * 'consolidated_weather' plus the value of 'title' as 'location'
  * @returns array of objects with the weather data, with each representating a day

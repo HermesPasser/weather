@@ -5,7 +5,7 @@ import './TodayWeather.css'
 /**
  *  Displays the current wheather and search the location to display
  */
-export default function TodayWeather({state, setState, setWeatherData}) {
+export default function TodayWeather({state, setState, setWeatherData, onGps}) {
     const todayData = state.weatherData[0]
     let date = dateFormat(dateFromString(todayData.applicable_date))
     
@@ -13,8 +13,6 @@ export default function TodayWeather({state, setState, setWeatherData}) {
         setState({...state, searchEnabled: true})
     }
     
-    const onGpsBtnClicked = (event) => { alert(event)}
-
     const onSearchBtnClicked = async (event) => {
         event.preventDefault()
         const searchInput = state.input.trim().toLocaleLowerCase()
@@ -48,7 +46,7 @@ export default function TodayWeather({state, setState, setWeatherData}) {
         <Fragment>
             <div className="today-weather-search-loc-wrapper">
                 <button className="today-weather-btn" onClick={onSearchPlacesBtnClicked}>Search for places</button>
-                <button className="today-weather-btn today-weather-gps-btn" onClick={onGpsBtnClicked}>
+                <button className="today-weather-btn today-weather-gps-btn" onClick={onGps}>
                     <span class="material-icons">gps_fixed</span>
                 </button>
             </div>
