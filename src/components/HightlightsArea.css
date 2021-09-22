@@ -15,12 +15,21 @@
 .temperature-kind-wrapper {
     justify-content: flex-end;
     padding-top: 40px;
+    padding-right: 45px;
     display: flex;
     width: 100%;
 }
 
 .temperature-kind-wrapper button {
+    background-color: rgb(90, 85, 120);
     border-radius: 50%;
+    color: white;
+    margin-left: 5px;
+}
+
+.temperature-kind-wrapper button:disabled {
+    background-color: rgb(230, 230, 235);
+    color: black;
 }
 
 .daily-weather-div {

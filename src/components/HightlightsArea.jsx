@@ -14,8 +14,8 @@ export default function HightlightsArea({state, setState, weatherData}) {
             <div className="daily-weather-content"> {/* so i can move everything w/o doing so with the bg */}
                 
                 <div className="temperature-kind-wrapper">
-                    <button onClick={ceisiusBtnClick} >C</button>
-                    <button onClick={fahrenheitBtnClick}>F</button>
+                    <button onClick={ceisiusBtnClick} disabled={state.useCelsius} >C</button>
+                    <button onClick={fahrenheitBtnClick} disabled={!state.useCelsius} >F</button>
                 </div>
                 
                 <div className="daily-weather-div">
