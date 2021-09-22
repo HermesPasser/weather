@@ -1,7 +1,12 @@
 :root {
     --te-bg-color: rgb(30, 35, 60);
 }
-  
+
+.today-weather-info-wrapper {
+    background-image: url("../assets/Cloudy.png");
+    background-size: 48%;
+}
+
 .today-weather-wrapper {
     background-color: var(--te-bg-color);
     width: 30%;
