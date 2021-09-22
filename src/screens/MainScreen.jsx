@@ -1,5 +1,5 @@
 import { getWeatherDataById, getCityByGeocalization } from '../WeatherAPIWrapper'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import HightlightsArea from "../components/HightlightsArea"
 import TodayWeather from "../components/TodayWeather"
 
@@ -83,6 +83,10 @@ export default function MainScreen(props) {
 
         setState({...state, weatherData: weather, location: loc})
     }
+
+    useEffect(()=>{
+        askForGPS()
+    }, []) 
 
     return (
         <div className="main-screen-wrapper">
