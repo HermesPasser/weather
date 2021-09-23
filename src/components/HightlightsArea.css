@@ -80,6 +80,36 @@
     flex-grow: 2;
 }
 
+
+.compass-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.compass {
+    width: 8%;
+}
+
+.gauge-labels {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gauge {
+    background-color: white;
+    border-radius: 50px;
+}
+
+.gauge-inside {
+    /* background: linear-gradient(90deg, yellow 100%, white 0%); */
+    background-color: yellow;
+    border-radius: 50px;
+}
+
+.gauge-percent-label {
+    text-align: end;
+}
+
 @media (max-width: 600px) {
    
     .hightlights-area-wrapper {
