@@ -1,4 +1,6 @@
-const API = "https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/"
+// OLD cors: 
+// const API = "https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/"
+const API = "https://api.allorigins.win/raw?url=https://www.metaweather.com/api/"
 
 /**
  * given a name, get all cities that matches it
@@ -21,8 +23,8 @@ export async function getCityByGeocalization(latitude, longetude) {
     const response = await fetch(API + `/location/search/?lattlong=${latitude},${longetude}`)
     if (response.status !== 200)
         return []
-    console.log('-->', response.status)
-    const data = response.json()
+        
+    const data = await response.json()
     return data
 }
 
@@ -36,7 +38,7 @@ export async function getWeatherDataById(id) {
     if (response.status !== 200)
         return []
     
-    const data = response.json()
+    const data = await response.json()
     if (data['detail'])
         return []
 
