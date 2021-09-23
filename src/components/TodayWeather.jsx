@@ -4,6 +4,7 @@ import { Fragment } from "react/cjs/react.production.min"
 import './TodayWeather.css'
 import { celciusToFahrenheit } from '../utils'
 import { getIconFromAbbreviation } from '../WeatherAPIWrapper'
+
 /**
  *  Displays the current wheather and search the location to display
  */
@@ -34,8 +35,12 @@ export default function TodayWeather({state, setState, setWeatherData, onGps}) {
     }
     
     const onCloseButtonClicked = (event) => {
-        setWeatherData()
-        setState({...state, searchEnabled: false})
+        setWeatherData(state.selectedId)
+        // since this state will be overriten if the setWeather fully succeeds
+        // so we set to false there, and here ONLY if setWeather don't complete its
+        // logic
+        if (state.searchEnabled)
+            setState({...state, searchEnabled: false})
     }
 
     const onSelectedOption = (event) => {

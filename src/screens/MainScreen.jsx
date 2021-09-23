@@ -48,7 +48,7 @@ export default function MainScreen(props) {
         await setWeatherData(id) // i hope will update the state now, or else i'll need a settimeout
     }
 
-    const askForGPS = () => {
+    const askForGPS = async () => {
         if (!("geolocation" in navigator)) {
             alert("Your browser do not support geolocalization.")
             return
@@ -65,18 +65,17 @@ export default function MainScreen(props) {
     }
 
     const setWeatherData = async (id) => {
-        id = id === void(0) ? state.selectedId : id
         if (id === 0)
             return
         
-        const data = await getWeatherDataById(id || state.selectedId)
+        const data = await getWeatherDataById(id)
         const weather = data.weatherData
         const loc = data.location
 
         if (data.length === 0 || weather.length === 0)
             return
 
-        setState({...state, weatherData: weather, location: loc})
+        setState({...state, weatherData: weather, location: loc, searchEnabled: false})
     }
 
     useEffect(()=>{
