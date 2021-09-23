@@ -1,4 +1,5 @@
 import MainScreen from './screens/MainScreen'
+import './Media.css';
 
 function App() {
   return (

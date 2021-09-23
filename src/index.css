@@ -11,20 +11,5 @@ body {
 .main-screen-wrapper {
   display: flex;
   height: 100vh;
-  width: 100%;
-  
-  
-}
-@media (max-width: 600px) {
-  body {
-		margin: 0;
-		width: 100%;
-	}
-
-.main-screen-wrapper {
-    display: block;
-    /* height: 100%; */
-    /* display: table;
-    width: 100%; */
-  }
+  width: 100%; 
 }
