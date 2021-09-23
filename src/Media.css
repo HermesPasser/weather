@@ -58,6 +58,7 @@
         display: flex;
         justify-content: center;
     }
+
     .today-weather-location-div span {
         /* font-size: 5em; */
     }
@@ -100,11 +101,11 @@
         padding-bottom: 5%;
     }
 
-    .highlight p span {
+    .highlight .prefix {
         font-size: xxx-large;
     }
     
-    .highlight .text p {
+    .highlight .sufix {
         font-size: xx-large;
     }
 }

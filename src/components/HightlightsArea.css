@@ -66,12 +66,14 @@
     /* height: fit-content; */
 }
 
-
-.highlight .text {
+.highlight .sufix {
     font-size: x-large;
+    margin-top: 0;
+    margin-bottom: 0;
+    /* padding-bottom: 0px; */
 }
 
-.highlight span {
+.highlight .prefix {
     font-size: xx-large;
 }
 
@@ -82,7 +84,6 @@
 .weather-temp p {
     flex-grow: 2;
 }
-
 
 .compass-wrapper {
     display: flex;
@@ -95,6 +96,7 @@
 
 .gauge-wrapper {
     font-size: small;
+    /* height: 20px; */
 }
 
 .gauge-labels {
@@ -105,12 +107,14 @@
 .gauge {
     background-color: white;
     border-radius: 50px;
+    height: 10px;
 }
 
 .gauge-inside {
     /* background: linear-gradient(90deg, yellow 100%, white 0%); */
     background-color: yellow;
     border-radius: 50px;
+    height: 10px;
 }
 
 .gauge-percent-label {

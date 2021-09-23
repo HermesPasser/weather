@@ -39,7 +39,10 @@ export default function HightlightsArea({state, setState, weatherData}) {
 
                     <div className="highlight wind-status">
                             <p>Wind Status</p>
-                            <p className="text"><span>{Math.round(todayData.wind_direction)}</span>mph</p>
+                                <span className="sufix">
+                                    <span className="prefix">{Math.round(todayData.wind_direction)}</span>
+                                    mph
+                                </span>
                             <div className="compass-wrapper">
                                 <img 
                                     className="compass" 
@@ -54,35 +57,43 @@ export default function HightlightsArea({state, setState, weatherData}) {
                     
                     <div className="highlight humidity">
                             <p>Humidity</p>
-                            <p><span>{todayData.humidity}</span>%</p>
+                            <span className="sufix">
+                                <span className="prefix">{todayData.humidity}</span>
+                                %
+                            </span>
                             <div className="gauge-wrapper">
                                 <div className="gauge-labels">
-                                    <p>0</p>
-                                    <p>50</p>
-                                    <p>100</p>
+                                    <span>0</span>
+                                    <span>50</span>
+                                    <span>100</span>
                                 </div>
                                 <div className="gauge">
                                     <div 
                                         className="gauge-inside"
                                         style={{width: todayData.humidity + '%'}}
                                         >
-                                        -
+                                        &nbsp;	
                                     </div>
                                 </div>
                                 <div className="gauge-percent-label">
-                                    <p>%</p>
+                                    <span>%</span>
                                 </div>
                             </div>
                     </div>
 
                     <div className="highlight visibility">
                         <p>Visibility</p>
-                        <p><span>{Math.round(todayData.visibility)}</span>miles</p>
+                        <span className="sufix">
+                            <span className="prefix">{Math.round(todayData.visibility)}</span>miles
+                        </span>
                     </div>
                     
                     <div className="highlight Air pressure">
                         <p>Wind Status</p>
-                        <p><span>{Math.round(todayData.air_pressure)}</span>mb</p>
+                        <span className="sufix">
+                            <span className="prefix">{Math.round(todayData.air_pressure)}</span>
+                            mb
+                        </span>
                     </div>
                 </div>
             </div>
