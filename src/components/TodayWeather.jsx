@@ -1,7 +1,6 @@
 import { getCityByName, getIconFromAbbreviation } from '../api/WeatherAPIWrapper'
 import { dateFormat, dateFromString } from '../utils'
-import { Fragment } from "react/cjs/react.production.min"
-import './TodayWeather.css'
+import { Fragment } from "react"
 import { celciusToFahrenheit } from '../utils'
 import './TodayWeather.css'
 

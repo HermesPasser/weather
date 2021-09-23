@@ -1,6 +1,5 @@
 import { getIconFromAbbreviation } from "../api/WeatherAPIWrapper"
 import { celciusToFahrenheit } from "../utils"
-import { useEffect } from "react"
 
 /*
  * Shows the temperature a day. Uses the same css than HightlightsArea
