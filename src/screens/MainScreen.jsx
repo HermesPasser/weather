@@ -35,7 +35,6 @@ export default function MainScreen(props) {
     const [state, setState] = useState(initialState)
     
     const setGPSLocation = async (coords) => {
-        console.log('1')
         // gets loc from the api and store it to be used later
         const data = await getCityByGeocalization(coords.latitude, coords.longitude)
         if (data.lenght === 0) {
@@ -53,23 +52,18 @@ export default function MainScreen(props) {
         if (!("geolocation" in navigator)) {
             alert("Your browser do not support geolocalization.")
             return
-          }
+        }
+
         if (state.gpsCoords === null) {
-            console.log('coords null')
             // since this func can be called only once
-            navigator.geolocation.watchPosition((pos) => {
-                // setState({...state, gpsCoords: pos.coords})
-                setGPSLocation(pos.coords)
+            navigator.geolocation.watchPosition(async (pos) => {
+                await setGPSLocation(pos.coords)
             })
-            // const watchId = navigator.geolocation.watchPosition(setGPSLocation, () => alert('oops'))
-            // navigator.geolocation.clearWatch(watchId)
         } else {
-            console.log('coords !null', state.coords)
             setGPSLocation(state.gpsCoords)
         }
     }
 
-    // NOT SURE IF THIS IS WORKING IN ALL CASES BUT I NEED TO TEST WITH GPS
     const setWeatherData = async (id) => {
         id = id === void(0) ? state.selectedId : id
         if (id === 0)
