@@ -22,11 +22,19 @@
     width: 100%;
 }
 
+.tw-close-wrapper {
+   width: 100%;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .tw-search-btn-x {
+
     background-color: rgba(1, 1, 1, 0);
     border: none;
     color: white;
-    justify-content: flex-end;
 }
 
 .today-weather-btn {
