@@ -1,4 +1,4 @@
-import { getIconFromAbbreviation } from "../WeatherAPIWrapper"
+import { getIconFromAbbreviation } from "../api/WeatherAPIWrapper"
 import { celciusToFahrenheit } from "../utils"
 import { useEffect } from "react"
 

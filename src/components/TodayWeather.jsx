@@ -1,9 +1,9 @@
-import { getCityByName } from '../WeatherAPIWrapper'
+import { getCityByName, getIconFromAbbreviation } from '../api/WeatherAPIWrapper'
 import { dateFormat, dateFromString } from '../utils'
 import { Fragment } from "react/cjs/react.production.min"
 import './TodayWeather.css'
 import { celciusToFahrenheit } from '../utils'
-import { getIconFromAbbreviation } from '../WeatherAPIWrapper'
+import './TodayWeather.css'
 
 /**
  *  Displays the current wheather and search the location to display

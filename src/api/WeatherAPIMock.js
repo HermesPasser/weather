@@ -1,4 +1,4 @@
-import { getCityByGeocalization as realGetGeo } from "./WeatherAPIWrapper"
+import { getCityByGeocalization as realGetGeo } from "./api/WeatherAPIWrapper"
 
 /**
  * Store hardcoded values from the API to test the UI witthout caring about 429's

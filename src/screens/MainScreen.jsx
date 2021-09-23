@@ -1,8 +1,7 @@
-import { getWeatherDataById, getCityByGeocalization } from '../WeatherAPIWrapper'
+import { getWeatherDataById, getCityByGeocalization } from '../api/WeatherAPIWrapper'
 import { useState, useEffect } from "react"
 import HightlightsArea from "../components/HightlightsArea"
 import TodayWeather from "../components/TodayWeather"
-
 
 // this has the same structure as the obj from the api on the 'consolidated_weather' attribute
 const initialWeatherState = {
