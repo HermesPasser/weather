@@ -5,7 +5,6 @@ import Compass from "../assets/Compass-Arrow.svg"
 
 export default function HightlightsArea({state, setState, weatherData}) {
     const todayData = weatherData[0]
-    // TODO: this needs to be implemented
     const ceisiusBtnClick = () => setState({...state, useCelsius: true})
     const fahrenheitBtnClick = () => setState({...state, useCelsius: false})
     const rotation = `rotate(${todayData.wind_direction}deg)`
