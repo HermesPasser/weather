@@ -28,9 +28,9 @@ export default function TodayWeather({state, setState, setWeatherData, onGps}) {
         }
         
         const cities = matches.map(c => { 
-                return {'city': c['title'], 'id': c['woeid']}
+            return {'city': c['title'], 'id': c['woeid']}
         })
-        setState({...state, options: cities})
+        setState({...state, options: cities, selectedId: cities[0].id})
     }
     
     const onCloseButtonClicked = (event) => {
