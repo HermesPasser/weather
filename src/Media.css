@@ -1,6 +1,7 @@
 @media (max-width: 600px) {
     body {
 		width: 100%;
+        overflow-x: hidden;
 	}
 
     .main-screen-wrapper {
