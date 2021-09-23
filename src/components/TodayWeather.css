@@ -22,10 +22,6 @@
     width: 100%;
 }
 
-.tw-close-wrapper {
-    /* display: flex; */
-}
-
 .tw-search-btn-x {
     background-color: rgba(1, 1, 1, 0);
     border: none;
@@ -54,30 +50,6 @@
     height: 150px;
 }
 
-/* 
-.today-weather-temperature-sign {
-    font-size: x-large;
-}
-
-.today-weather-climate {
-    font-size: x-large;
-}
-
-.today-weather-time-date {
-    font-size: xx-small;
-}
-
-.today-weather-location-div { 
-    font-size: xx-small;
-    display: flex;
-    justify-content: center;
-}
-
-.today-weather-location-div span {
-    font-size: 20px;
-} */
-
-
 .today-weather-temperature-number {
     font-size: 5em;
 }
@@ -99,7 +71,6 @@
     justify-content: center;
     align-items: center;
 }
-
 
 /* search view */
 
