@@ -95,8 +95,8 @@ export default function TodayWeather({state, setState, setWeatherData, onGps}) {
                         </div>
                         <select onChange={onSelectedOption}>
                             {
-                                state.options.map(val => (
-                                    <option value={val.id}>{val.city}</option>
+                                state.options.map((val, i) => (
+                                    <option key={i} value={val.id}>{val.city}</option>
                                 ))
                             }
                         </select>
