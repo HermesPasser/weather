@@ -52,7 +52,7 @@ export default function TodayWeather({state, setState, setWeatherData, onGps}) {
             <div className="today-weather-search-loc-wrapper">
                 <button className="today-weather-btn" onClick={onSearchPlacesBtnClicked}>Search for places</button>
                 <button className="today-weather-btn today-weather-gps-btn" onClick={onGps}>
-                    <span class="material-icons">gps_fixed</span>
+                    <span className="material-icons">gps_fixed</span>
                 </button>
             </div>
             
