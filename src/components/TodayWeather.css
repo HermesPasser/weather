@@ -50,6 +50,11 @@
     font-size: xxx-large;
 }
 
+.today-weather-image {
+    height: 150px;
+}
+
+/* 
 .today-weather-temperature-sign {
     font-size: x-large;
 }
@@ -62,7 +67,7 @@
     font-size: xx-small;
 }
 
-.today-weather-location-div {
+.today-weather-location-div { 
     font-size: xx-small;
     display: flex;
     justify-content: center;
@@ -70,7 +75,31 @@
 
 .today-weather-location-div span {
     font-size: 20px;
+} */
+
+
+.today-weather-temperature-number {
+    font-size: 5em;
 }
+
+.today-weather-temperature-sign {
+    font-size: 2em;
+}
+
+.today-weather-climate{
+    font-size: 1em;
+}
+
+.today-weather-time-date {
+    font-size: 0.5em;
+}
+
+.today-weather-location-div {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* search view */
 

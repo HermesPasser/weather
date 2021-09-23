@@ -62,7 +62,10 @@
 .highlight {
     background-color: var(--fg);
     text-align: center;
+    width: 80%;
+    /* height: fit-content; */
 }
+
 
 .highlight .text {
     font-size: x-large;
@@ -88,6 +91,10 @@
 
 .compass {
     width: 8%;
+}
+
+.gauge-wrapper {
+    font-size: small;
 }
 
 .gauge-labels {
