@@ -3,13 +3,14 @@ import { dateFormat, dateFromString } from '../utils'
 import { Fragment } from "react/cjs/react.production.min"
 import './TodayWeather.css'
 import { celciusToFahrenheit } from '../utils'
-
+import { getIconFromAbbreviation } from '../WeatherAPIWrapper'
 /**
  *  Displays the current wheather and search the location to display
  */
 export default function TodayWeather({state, setState, setWeatherData, onGps}) {
     const todayData = state.weatherData[0]
     let date = dateFormat(dateFromString(todayData.applicable_date))
+    const icon = getIconFromAbbreviation(todayData.weather_state_abbr)
     let temperature = state.useCelsius ? todayData.the_temp : celciusToFahrenheit(todayData.the_temp)
     temperature = Math.round(temperature)
     
@@ -58,7 +59,7 @@ export default function TodayWeather({state, setState, setWeatherData, onGps}) {
             <div className="today-weather-info-wrapper">
                 <img 
                     className="today-weather-image"
-                    src="https://www.metaweather.com/static/img/weather/png/64/s.png" 
+                    src={icon} 
                     alt="figure representing the weather" />
 
                 <p>
